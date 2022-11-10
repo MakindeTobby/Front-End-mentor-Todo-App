@@ -1,14 +1,53 @@
-.top {
+.top-light {
+    background-image: url(/images/bg-desktop-light.jpg);
+    width: 100%;
+    height: 40vh;
+}
+
+.top-dark {
     background-image: url(/images/bg-desktop-dark.jpg);
     width: 100%;
     height: 40vh;
+}
+
+.ext {
+    display: none;
 }
 
 .circle {
     background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 }
 
+.none {
+    display: none;
+}
+
+.hove:hover .none {
+    display: block;
+}
+
 .checked {
     text-decoration: line-through;
-    color: #777;
+}
+
+.wide {
+    width: 40%;
+}
+
+@media(max-width: 990px) {
+    .wide {
+        width: 50%;
+    }
+}
+
+@media(max-width: 732px) {
+    .wide {
+        width: 60%;
+    }
+}
+
+@media(max-width: 610px) {
+    .wide {
+        width: 95%;
+    }
 }
