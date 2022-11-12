@@ -4,7 +4,7 @@ import { ThemeContext } from './Themecontext';
 
 
 function App() {
-  let [displayTask, setDisplayTask] = useState([])
+  const [displayTask, setDisplayTask] = useState([])
   const [task, setTask] = useState([]);
   const text = useRef(null)
 
@@ -13,6 +13,7 @@ function App() {
     const value = theme == 'light' ? 'dark' : 'light'
     setTheme(value);
   }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     let t = text.current.value.trim()
@@ -21,6 +22,7 @@ function App() {
     setTask([...displayTask])
     text.current.value = ' '
   }
+
   const handleChecked = (e) => {
     task[e].status = "completed"
     setTask([...task])
@@ -40,9 +42,13 @@ function App() {
     )
     setTask([...result])
   }
-  const handleClear = () => {
-    displayTask = []
-    setTask([...displayTask])
+  const handleClear = (data) => {
+    const pending = displayTask.filter(item => {
+      return item.status !== data
+    }
+    )
+    setDisplayTask([...pending])
+    setTask([...pending])
   }
 
   return (
@@ -92,12 +98,8 @@ function App() {
 
               <div className='w-full h-14 text-slate-500 text-xs flex pl-4 pr-4 gap-4 items-center rounded-b-md shadow-md justify-between'>
                 <span>{task.length <= 0 ? 'No' : task.length} items left</span>
-                {/* <div className='flex gap-4'>
-                  <button className='focus-within:text-blue-500' onClick={() => setTask([...displayTask])}>All</button>
-                  <button className='focus-within:text-blue-500' onClick={() => handleFilter('not-completed')}>Active</button>
-                  <button className='focus-within:text-blue-500' onClick={() => handleFilter('completed')}>Completed</button>
-                </div> */}
-                <button className='hover:text-blue-600' onClick={handleClear}>Clear Completed</button>
+
+                <button className='hover:text-blue-600' onClick={() => handleClear('completed')}>Clear Completed</button>
               </div>
               <div className='flex gap-4  sticky text-slate-500  top-48 w-full justify-center py-2'>
                 <button className='focus-within:text-blue-500' onClick={() => setTask([...displayTask])}>All</button>
