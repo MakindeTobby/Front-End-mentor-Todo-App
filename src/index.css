@@ -2,10 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  font-family: cursive;
-}
 
-h4 {
+* {
   font-family: Arial, Helvetica, sans-serif;
 }
