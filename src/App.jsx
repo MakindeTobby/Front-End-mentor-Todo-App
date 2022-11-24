@@ -101,7 +101,7 @@ function App() {
 
                 <button className='hover:text-blue-600' onClick={() => handleClear('completed')}>Clear Completed</button>
               </div>
-              <div className='flex gap-4  sticky text-slate-500  top-48 w-full justify-center py-2'>
+              <div className='flex gap-5  sticky text-slate-500  top-48 w-full justify-evenly py-2'>
                 <button className='focus-within:text-blue-500' onClick={() => setTask([...displayTask])}>All</button>
                 <button className='focus-within:text-blue-500' onClick={() => handleFilter('not-completed')}>Active</button>
                 <button className='focus-within:text-blue-500' onClick={() => handleFilter('completed')}>Completed</button>
